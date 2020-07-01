@@ -1,6 +1,5 @@
-
 module.exports = {
-  main: function(event, context) {
-    return 'Hello World'
-  }
+    main: function(event, context) {
+        return 'Hello GitOps'
+    }
 }
