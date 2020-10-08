@@ -10,3 +10,45 @@ spec:
     def main(event, context):
         return "hello world"
 
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  labels: {}
+  name: first-function-the-source-1
+  namespace: default
+spec:
+  broker: default
+  filter:
+    attributes:
+      eventtypeversion: evt1
+      source: the-source-1
+      type: t1
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: first-function
+      namespace: default
+
+---
+apiVersion: eventing.knative.dev/v1alpha1
+kind: Trigger
+metadata:
+  labels: {}
+  name: first-function-the-source-2
+  namespace: default
+spec:
+  broker: default
+  filter:
+    attributes:
+      eventtypeversion: evt1
+      source: the-source-2
+      type: t1
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: first-function
+      namespace: default
+

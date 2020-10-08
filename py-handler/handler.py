@@ -1,2 +1,2 @@
 def main(event, context):
-    return “Hello Python37
+    return “Hello Python37"
