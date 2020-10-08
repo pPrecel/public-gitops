@@ -1,21 +1,12 @@
+---
 apiVersion: serverless.kyma-project.io/v1alpha1
 kind: Function
 metadata:
-  name: demo-git
-  labels:
-    foo: bar
+  name: first-function
+  namespace: default
 spec:
-  type: git
-  runtime: python37
-  source: sample
-  reference: python37
-  baseDir: py-handler
+  runtime: python38
+  source: |-
+    def main(event, context):
+        return "hello world"
 
----
-
-apiVersion: serverless.kyma-project.io/v1alpha1
-kind: GitRepository
-metadata:
-  name: sample
-spec:
-  url: "https://github.com/pPrecel/public-gitops"
